@@ -9,7 +9,5 @@
  */
 angular.module('testMotoSmartApp')
   .controller('SplashUploadPhotosCtrl', function ($scope) {
-    this.goBackHistory = () => {
-      $scope.history.back();
-    }
+  
   });
