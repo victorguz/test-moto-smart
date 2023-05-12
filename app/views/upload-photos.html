@@ -15,39 +15,36 @@
     </a>
   </nav>
   <section
-    class="container pt-3 pb-5 d-flex flex-column align-items-center gap-3"
+    class="container pt-3 pb-5 d-flex flex-column align-items-center justify-content-around gap-3"
   >
-    <img src="../images/upload-photo-empty.svg" alt="upload-photo-empty" />
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <img src="../images/upload-photo-empty.svg" alt="upload-photo-empty" />
 
-    <h1 class="upload-photos-title">
-      Elige las fotos para tu <br />
-      publicación
-    </h1>
+      <h1 class="upload-photos-title">
+        Elige las fotos para tu <br />
+        publicación
+      </h1>
+    </div>
 
-    <button class="btn btn-primary" ng-click="openFloatingActionButton">
+    <button
+      class="btn btn-primary btn-add-photos"
+      ng-click="openFloatingActionButton()"
+    >
       Agregar fotos
     </button>
   </section>
 </article>
 
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large red">
-    <i class="large material-icons">mode_edit</i>
-  </a>
-  <ul>
-    <li>
-      <a class="btn-floating red"><i class="material-icons">insert_chart</i></a>
-    </li>
-    <li>
-      <a class="btn-floating yellow darken-1"
-        ><i class="material-icons">format_quote</i></a
-      >
-    </li>
-    <li>
-      <a class="btn-floating green"><i class="material-icons">publish</i></a>
-    </li>
-    <li>
-      <a class="btn-floating blue"><i class="material-icons">attach_file</i></a>
-    </li>
-  </ul>
-</div>
+<article class="floating-actions floating-actions-open">
+  <section class="floating-action-buttons">
+    <div class="drawer"></div>
+    <button class="btn">
+      <img src="../images/icono CAMARA.svg" alt="icono CAMARA" />
+      Sacar una foto ahora
+    </button>
+    <button class="btn">
+      <img src="../images/icono FOTOS.svg" alt="icono FOTOS" />
+      Buscar en mi galería
+    </button>
+  </section>
+</article>
