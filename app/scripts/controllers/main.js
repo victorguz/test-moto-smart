@@ -9,7 +9,5 @@
  */
 angular.module('testMotoSmartApp')
   .controller('MainCtrl', function ($scope) {
-    this.goBackHistory = () => {
-      $scope.history.back();
-    }
+   
   });
