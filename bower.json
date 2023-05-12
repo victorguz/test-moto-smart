@@ -1,0 +1,28 @@
+{
+  "name": "test-moto-smart",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.8.0",
+    "bootstrap": "^5.2.0",
+    "angular-animate": "^1.8.0",
+    "angular-cookies": "^1.8.0",
+    "angular-resource": "^1.8.0",
+    "angular-route": "^1.8.0",
+    "angular-sanitize": "^1.8.0",
+    "angular-touch": "^1.8.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.8.0"
+  },
+  "appPath": "app",
+  "moduleName": "testMotoSmartApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
