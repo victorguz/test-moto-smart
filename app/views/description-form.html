@@ -1,0 +1,36 @@
+<article class="form">
+  <nav class="header p-3">
+    <a class="btn btn-back rounded-circle border-0" ng-href="#!/title-form">
+      <img src="../images/back-black.svg" alt="back" />
+    </a>
+    <h1>Describe tu publicación</h1>
+    <a
+      class="btn btn-primary btn-small"
+      ng-disabled="!descriptionForm.description.length"
+      ng-href="#!/categories-form"
+    >
+      Continuar
+    </a>
+  </nav>
+  <section
+    class="container pt-3 pb-5 d-flex flex-column align-items-center gap-3"
+  >
+    <div class="input-field h-100 w-100">
+      <textarea
+        id="textarea1"
+        class="materialize-textarea w-100 h-100"
+        rows="10"
+        ng-model="descriptionForm.description"
+        placeholder="Ej: Las llantas kenda son de maxima duración."
+      ></textarea>
+      <div
+        class="helper-text d-flex align-items-center justify-content-between"
+        data-error="wrong"
+        data-success="right"
+      >
+        <span>Puedes incluir 2000 caracteres en el titulo</span>
+        <span>{{descriptionForm.description.length||0}}/2000</span>
+      </div>
+    </div>
+  </section>
+</article>

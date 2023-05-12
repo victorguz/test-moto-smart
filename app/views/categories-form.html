@@ -1,0 +1,36 @@
+<article class="form">
+  <nav class="header p-3">
+    <a
+      class="btn btn-back rounded-circle border-0"
+      ng-href="#!/description-form"
+    >
+      <img src="../images/back-black.svg" alt="back" />
+    </a>
+    <a
+      class="btn btn-primary btn-small"
+      ng-disabled="!selectedCategories.length"
+      ng-href="#!/splash-upload-photos"
+    >
+      Continuar
+    </a>
+  </nav>
+  <section
+    class="container pt-3 pb-5 d-flex flex-column align-items-center gap-3"
+  >
+    <h1 class="categories-title">
+      Selecciona las categorias a las cuales <br />
+      pertenesca tu producto o servicio
+    </h1>
+    <div class="categories" ng-if="categories.length">
+      <div
+        class="category-item"
+        ng-repeat="category in categories"
+        ng-class="{selected: isSelectedCategory(category)}"
+        ng-click="selectCategory(category)"
+      >
+        <img ng-src="../images/{{category.image}}" alt="{{category.image}}" />
+        <span>{{category.name}}</span>
+      </div>
+    </div>
+  </section>
+</article>

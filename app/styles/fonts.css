@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("fonts/Metropolis-Regular.otf"), url("fonts/Metropolis-Black.otf");
+}
+@font-face {
+  font-family: "Avenir Book";
+  src: url("fonts/Avenir\ Book.ttf");
+}

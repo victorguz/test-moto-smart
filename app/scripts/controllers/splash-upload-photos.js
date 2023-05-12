@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name testMotoSmartApp.controller:MainCtrl
+ * @name testMotoSmartApp.controller:SplashUploadPhotosCtrl
  * @description
- * # MainCtrl
+ * # SplashUploadPhotosCtrl
  * Controller of the testMotoSmartApp
  */
 angular.module('testMotoSmartApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('SplashUploadPhotosCtrl', function ($scope) {
     this.goBackHistory = () => {
       $scope.history.back();
     }
