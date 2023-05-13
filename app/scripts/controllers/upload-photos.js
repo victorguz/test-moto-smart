@@ -10,7 +10,7 @@
 angular
   .module("testMotoSmartApp")
   .controller("UploadPhotosCtrl", function ($scope) {
-    $scope.capture = false;
+    $scope.capture = "environment";
     $scope.images = [
       {
         id: 1,
@@ -35,9 +35,21 @@ angular
     ];
     const uploadedPhotosRoute = "#!/uploaded-photos";
     const afterUploadedRoute = "#!/last-form";
-    const imageInputFile = document.querySelector("#imageFile");
+    const inputFileCamera = document.querySelector("#inputFileCamera");
+    const inputFileGallery = document.querySelector("#inputFileGallery");
 
-    imageInputFile.addEventListener("change", (e) => {
+    inputFileCamera.addEventListener("change", (e) => {
+      // Get a reference to the file
+      const file = e.target.files[0];
+
+      // Encode the file using the FileReader API
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        $scope.goToUploadedPhotos();
+      };
+      reader.readAsDataURL(file);
+    });
+    inputFileGallery.addEventListener("change", (e) => {
       // Get a reference to the file
       const file = e.target.files[0];
 
@@ -64,11 +76,11 @@ angular
 
     $scope.openFile = (item) => {
       if (item === "camera") {
-        $scope.capture = true;
+        inputFileCamera.click();
       } else {
-        $scope.capture = false;
+        inputFileGallery.click();
       }
-      imageInputFile.click();
+      console.log($scope.capture);
     };
 
     $scope.goToUploadedPhotos = () => {

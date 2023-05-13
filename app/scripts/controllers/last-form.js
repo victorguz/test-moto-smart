@@ -14,9 +14,13 @@ angular
     $scope.first_value = "";
     $scope.percent = "";
     $scope.isEnabledContinue = () => {
-      return $scope.toggle
-        ? $scope.first_value && $scope.percent
-        : $scope.first_value;
+      if ($scope.toggle && $scope.first_value && $scope.percent) {
+        return true;
+      }
+      if (!$scope.toggle && $scope.first_value) {
+        return true;
+      }
+      return false;
     };
     $scope.setPercent = (event) => {
       $scope.percent = event.target.value;

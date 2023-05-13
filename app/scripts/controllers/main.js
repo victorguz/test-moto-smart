@@ -1,6 +1,6 @@
 'use strict';
 
-/**
+/**<<<<<<
  * @ngdoc function
  * @name testMotoSmartApp.controller:MainCtrl
  * @description
@@ -9,5 +9,5 @@
  */
 angular.module('testMotoSmartApp')
   .controller('MainCtrl', function ($scope) {
-   
+
   });

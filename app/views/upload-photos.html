@@ -51,8 +51,14 @@
 
 <input
   type="file"
-  id="imageFile"
-  ng-attr-capture="{{capture?'environment':undefined}}"
+  id="inputFileCamera"
+  capture="environment"
+  accept="image/*"
+  hidden
+/>
+<input
+  type="file"
+  id="inputFileGallery"
   accept="image/*"
   hidden
 />
