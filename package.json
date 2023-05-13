@@ -2,6 +2,7 @@
   "name": "testmotosmart",
   "private": true,
   "scripts": {
+    "bower:install": "bower install",
     "build": "grunt build"
   },
   "devDependencies": {

@@ -3,9 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
-        - npm install bower
-        - ./node_modules/bower/bin/bower install
+        - npm i
+        - npm run bower:install
         - npm run build
     # IMPORTANT - Please verify your build commands
     build:
