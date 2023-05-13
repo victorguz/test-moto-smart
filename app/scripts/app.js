@@ -49,6 +49,16 @@ angular
         controller: "UploadPhotosCtrl",
         controllerAs: "UploadPhotosForm",
       })
+      .when("/uploaded-photos", {
+        templateUrl: "views/uploaded-photos.html",
+        controller: "UploadPhotosCtrl",
+        controllerAs: "UploadPhotosForm",
+      })
+      .when("/last-form", {
+        templateUrl: "views/last-form.html",
+        controller: "LastFormCtrl",
+        controllerAs: "LastForm",
+      })
       .otherwise({
         redirectTo: "/",
       });

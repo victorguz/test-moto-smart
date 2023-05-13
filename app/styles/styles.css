@@ -1,4 +1,5 @@
 * {
+  font-family: "Avenir";
   font-size: 16px;
 }
 html,
@@ -12,6 +13,14 @@ body {
   max-height: 100vh;
 }
 
+p {
+  font-family: "Avenir Book";
+}
+
+strong,
+b {
+  font-weight: 900;
+}
 .index-content {
   display: flex;
   flex-direction: column;
@@ -28,6 +37,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 a {
   font-family: "Avenir";
@@ -45,6 +57,19 @@ a {
   border: none !important;
   color: white !important;
 }
+
+.text-primary {
+  color: #ff7400 !important;
+}
+.btn-secondary {
+  /* background-color: rgba(0, 0, 0, 0.2) !important; */
+  border: none !important;
+  color: white !important;
+}
+.bg-secondary {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
 .btn-primary:disabled {
   background-color: rgb(255, 116, 0, 0.5) !important;
   border: none !important;
@@ -67,11 +92,11 @@ a {
 }
 
 .floating-actions {
-  transition: all ease 1s;
+  transition: all ease 0.4s;
 
   position: absolute;
   z-index: 900;
-  bottom: 0;
+  top: 0;
   left: 0;
 
   background: transparent;
@@ -83,16 +108,19 @@ a {
   display: flex;
   align-items: end;
   justify-content: center;
+
+  /* display: none; */
 }
 
 .floating-actions-open {
+  display: flex;
+
   pointer-events: all;
   background: rgba(0, 0, 0, 0.4);
   height: calc(100vh);
 }
-
 .floating-action-buttons {
-  /* transition: all ease 1s; */
+  transition: all ease 0.4s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,7 +133,8 @@ a {
   background: #ffffff;
   border-radius: 20px 20px 0px 0px;
   background-color: white;
-  box-shadow: 0px 14px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 14px 15px rgba(0, 0, 0, 0.4) !important;
+  pointer-events: all;
 }
 
 .floating-action-buttons .btn {
@@ -134,4 +163,60 @@ a {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     #ffffff;
   border-radius: 30px;
+  cursor: pointer;
+}
+
+.photo-slider {
+  width: 100%;
+  height: fit-content;
+}
+.photo-slider .slider-content {
+  display: flex;
+  gap: 2.5rem;
+  padding-top: 3rem;
+  overflow-x: auto !important;
+}
+.photo-slider .slider-content .slide {
+  position: relative;
+}
+.photo-slider .slider-content .slide .btn-closer {
+  position: absolute;
+  z-index: 2;
+  top: -22.52px;
+  right: -22.52px;
+
+  width: 45.45px;
+  height: 45.45px;
+  border-radius: 50px;
+  filter: drop-shadow(0px 9.09091px 9.09091px rgba(0, 0, 0, 0.25));
+}
+.photo-slider .slider-content .slide img {
+  object-fit: cover;
+}
+
+.floating-loader {
+  transition: all ease 0.4s;
+
+  position: absolute;
+  z-index: 900;
+  top: 0;
+  left: 0;
+
+  background: transparent;
+  width: 100vw;
+  height: calc(100vh + 197px);
+
+  pointer-events: none;
+
+  display: flex;
+  align-items: end;
+  justify-content: center;
+
+  /* display: none; */
+}
+
+.card {
+  border: none;
+  box-shadow: none;
+  border-radius: 10px;
 }

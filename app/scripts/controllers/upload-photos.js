@@ -10,5 +10,79 @@
 angular
   .module("testMotoSmartApp")
   .controller("UploadPhotosCtrl", function ($scope) {
-    $scope.openFloatingActionButton = () => {};
+    $scope.capture = false;
+    $scope.images = [
+      {
+        id: 1,
+        name: "1.png",
+      },
+      {
+        id: 2,
+        name: "2.png",
+      },
+      {
+        id: 3,
+        name: "3.png",
+      },
+      {
+        id: 4,
+        name: "4.png",
+      },
+      {
+        id: 5,
+        name: "5.png",
+      },
+    ];
+    const uploadedPhotosRoute = "#!/uploaded-photos";
+    const afterUploadedRoute = "#!/last-form";
+    const imageInputFile = document.querySelector("#imageFile");
+
+    imageInputFile.addEventListener("change", (e) => {
+      // Get a reference to the file
+      const file = e.target.files[0];
+
+      // Encode the file using the FileReader API
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        $scope.goToUploadedPhotos();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    $scope.openFloatingActionButton = () => {
+      const floatingActionsContainer =
+        document.querySelector(".floating-actions");
+      console.log(floatingActionsContainer);
+      if (
+        floatingActionsContainer.classList.contains("floating-actions-open")
+      ) {
+        floatingActionsContainer.classList.remove("floating-actions-open");
+      } else {
+        floatingActionsContainer.classList.add("floating-actions-open");
+      }
+    };
+
+    $scope.openFile = (item) => {
+      if (item === "camera") {
+        $scope.capture = true;
+      } else {
+        $scope.capture = false;
+      }
+      imageInputFile.click();
+    };
+
+    $scope.goToUploadedPhotos = () => {
+      location.href = uploadedPhotosRoute;
+    };
+
+    $scope.goToLastForm = () => {
+      const floatingActionsContainer =
+        document.querySelector(".floating-loader");
+      if (floatingActionsContainer.classList.contains("floating-loader-open")) {
+        floatingActionsContainer.classList.remove("floating-loader-open");
+      } else {
+        floatingActionsContainer.classList.add("floating-loader-open");
+      }
+      location.href = afterUploadedRoute;
+    };
   });

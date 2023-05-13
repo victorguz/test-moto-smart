@@ -27,7 +27,7 @@
     </div>
 
     <button
-      class="btn btn-primary btn-add-photos"
+      class="btn btn-primary btn-add-photos text-nowrap"
       ng-click="openFloatingActionButton()"
     >
       Agregar fotos
@@ -35,16 +35,24 @@
   </section>
 </article>
 
-<article class="floating-actions floating-actions-open">
+<article class="floating-actions">
   <section class="floating-action-buttons">
-    <div class="drawer"></div>
-    <button class="btn">
+    <div class="drawer" ng-click="openFloatingActionButton()"></div>
+    <button class="btn" ng-click="openFile('camera')">
       <img src="../images/icono CAMARA.svg" alt="icono CAMARA" />
       Sacar una foto ahora
     </button>
-    <button class="btn">
+    <button class="btn" ng-click="openFile('galery')">
       <img src="../images/icono FOTOS.svg" alt="icono FOTOS" />
       Buscar en mi galería
     </button>
   </section>
 </article>
+
+<input
+  type="file"
+  id="imageFile"
+  ng-attr-capture="{{capture?'environment':undefined}}"
+  accept="image/*"
+  hidden
+/>

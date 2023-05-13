@@ -1,0 +1,55 @@
+<article class="form">
+  <nav class="header p-3">
+    <a class="btn btn-back rounded-circle border-0" ng-href="#!/upload-photos">
+      <img src="../images/back-black.svg" alt="back" />
+    </a>
+    <h1>Crear publicación</h1>
+    <a class="btn btn-primary btn-small" ng-href="#!/last-form"> Continuar </a>
+  </nav>
+  <section
+    class="container pt-3 pb-5 d-flex flex-column align-items-center gap-3"
+  >
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="uploaded-photos-message">
+        <h1 class="upload-photos-title">Importante:</h1>
+        <p>
+          Recuerda que la primera foto de tu producto o servicio debe de ser en
+          fondo blanco puro como este 👉
+        </p>
+      </div>
+      <img src="../images/casco.png" alt="casco" width="67" height="67" />
+    </div>
+
+    <div class="photo-slider">
+      <div class="slider-content">
+        <div class="slide" ng-repeat="image in images">
+          <button class="btn btn-closer bg-white">
+            <img src="../images/close.svg" alt="close" />
+          </button>
+          <img
+            ng-src="../images/slider/{{image.name}}"
+            width="240px"
+            height="240px"
+            alt="slide-{{image.id}}"
+          />
+        </div>
+      </div>
+    </div>
+
+    <button class="btn mt-5 pt-5" ng-click="openFile('galery')">
+      <img src="../images/open-gallery.svg" alt="icono-galeria" />
+    </button>
+  </section>
+</article>
+
+<article class="floating-loader floating-loader-open">
+  <img src="../images/loading.svg" alt="loading" />
+</article>
+
+<input
+  type="file"
+  id="imageFile"
+  ng-attr-capture="{{capture?'environment':undefined}}"
+  accept="image/*"
+  hidden
+/>
