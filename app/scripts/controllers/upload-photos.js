@@ -78,11 +78,14 @@ angular
     $scope.goToLastForm = () => {
       const floatingActionsContainer =
         document.querySelector(".floating-loader");
-      if (floatingActionsContainer.classList.contains("floating-loader-open")) {
+      floatingActionsContainer.classList.add("floating-loader-open");
+      setTimeout(() => {
         floatingActionsContainer.classList.remove("floating-loader-open");
-      } else {
-        floatingActionsContainer.classList.add("floating-loader-open");
-      }
-      location.href = afterUploadedRoute;
+        location.href = afterUploadedRoute;
+      }, 1000);
+    };
+
+    $scope.deleteImage = (image) => {
+      $scope.images = $scope.images.filter((val) => val.id !== image.id);
     };
   });

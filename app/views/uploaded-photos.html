@@ -4,7 +4,9 @@
       <img src="../images/back-black.svg" alt="back" />
     </a>
     <h1>Crear publicación</h1>
-    <a class="btn btn-primary btn-small" ng-href="#!/last-form"> Continuar </a>
+    <button class="btn btn-primary btn-small" ng-click="goToLastForm()">
+      Continuar
+    </button>
   </nav>
   <section
     class="container pt-3 pb-5 d-flex flex-column align-items-center gap-3"
@@ -23,7 +25,7 @@
     <div class="photo-slider">
       <div class="slider-content">
         <div class="slide" ng-repeat="image in images">
-          <button class="btn btn-closer bg-white">
+          <button class="btn btn-closer bg-white" ng-click="deleteImage(image)">
             <img src="../images/close.svg" alt="close" />
           </button>
           <img
@@ -42,7 +44,7 @@
   </section>
 </article>
 
-<article class="floating-loader floating-loader-open">
+<article class="floating-loader">
   <img src="../images/loading.svg" alt="loading" />
 </article>
 
