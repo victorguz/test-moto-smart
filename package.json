@@ -1,6 +1,9 @@
 {
   "name": "testmotosmart",
   "private": true,
+  "scripts": {
+    "build": "grunt build"
+  },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "bower": "^1.8.14",
