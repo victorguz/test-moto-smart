@@ -1,6 +1,9 @@
 <article class="form">
   <nav class="header p-3">
-    <a class="btn btn-back rounded-circle border-0" ng-href="#!/uploaded-photos">
+    <a
+      class="btn btn-back rounded-circle border-0"
+      ng-href="#!/uploaded-photos"
+    >
       <img src="../images/back-black.svg" alt="back" />
     </a>
     <h1>
@@ -19,7 +22,6 @@
       *El valor de todos los productos o servicios ofrecidos en MotoSmart, están
       representados en MotoPuntos más pesos colombianos COP o solo MotoPuntos.
     </p>
-
     <div
       class="toggle-button d-flex align-items-center gap-1 bg-secondary p-1 rounded"
     >
@@ -38,7 +40,6 @@
         Solo MotoPuntos
       </button>
     </div>
-
     <div class="card w-100">
       <div class="card-body">
         <div class="input-field">
@@ -53,7 +54,7 @@
           />
           <label for="first_value">$ Ingresa el valor sin descuentos </label>
           <span class="helper-text text-end"
-            >{{(first_value+"").length||0}}/14</span
+            >{{getFirstValueLength()||0}}/14</span
           >
         </div>
       </div>
@@ -74,9 +75,8 @@
             <span class="text-success">% Off</span> Ingresa el porcentaje de
             decuento
           </label>
-          <span class="helper-text text-end">{{(percent+"").length||0}}/2</span>
+          <span class="helper-text text-end">{{getPercentLength()||0}}/2</span>
         </div>
-
         <small
           >El valor de descuento se vera reflejado en la cantidad de
           MotoPuntos</small
@@ -88,7 +88,6 @@
         <h1 class="text-center mt-0 mb-4 w-100 d-flex justify-content-center">
           Visualización de los valores ingresados
         </h1>
-
         <div
           class="d-flex align-items-center gap-1 justify-content-between text-nowrap mb-3"
         >
@@ -112,10 +111,10 @@
             ng-if="percent > 0"
           >
             <span class="text-dark"
-              >COP: {{first_value-(first_value*percent/100) | number}}
+              >COP: {{getValueMotoPuntos() | number}}
             </span>
             <span>+</span>
-            <span class="text-primary">{{percent*100 | number}}</span>
+            <span class="text-primary">{{getPercentX100() | number}}</span>
             <img src="../images/mp.svg" alt="mp" />
           </div>
         </div>
