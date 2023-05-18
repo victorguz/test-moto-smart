@@ -10,5 +10,10 @@
 angular
   .module("testMotoSmartApp")
   .controller("TitleFormCtrl", function ($scope) {
-    $scope.title = "";
+    $scope.title = sessionStorage.getItem("title")||"";
+    $scope.setTitle = (title) => {
+      console.log(title);
+      $scope.title = title;
+      sessionStorage.setItem("title", title);
+    };
   });

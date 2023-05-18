@@ -1,6 +1,7 @@
 * {
   font-family: "Avenir";
   font-size: 16px;
+  color: #686e7f;
 }
 html,
 body {
@@ -228,4 +229,22 @@ a {
   border: none;
   box-shadow: none;
   border-radius: 10px;
+}
+.card-body {
+  position: relative;
+}
+
+.card .card-body .icon-info {
+  position: absolute;
+  right: 9px;
+  top: 4px;
+  cursor: pointer;
+}
+.card .card-body .icon-info:hover,
+.card .card-body .icon-info:focus {
+  filter: saturate(80%);
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

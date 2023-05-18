@@ -10,26 +10,63 @@
 angular
   .module("testMotoSmartApp")
   .controller("PriceFormCtrl", function ($scope) {
-    $scope.toggle = true;
-    $scope.price = "";
-    $scope.percent = "";
-    $scope.isEnabledContinue = () => {
-      if (
-        ($scope.toggle && $scope.price && $scope.percent) ||
-        (!$scope.toggle && $scope.price)
-      ) {
-        return true;
-      }
-      return false;
+    $scope.notOnlyMotoPuntos =
+      JSON.parse(sessionStorage.getItem("notOnlyMotoPuntos")) || true;
+    $scope.price = JSON.parse(sessionStorage.getItem("price")) || "";
+    $scope.percent = JSON.parse(sessionStorage.getItem("percent")) || "";
+    $scope.salesTypes = [
+      {
+        id: 1,
+        name: "Sin restricciones",
+        description:
+          "El producto o servicio prodra ser adquirido por el usuario las veces que quiera pagando solo con MotoPuntos",
+      },
+      {
+        id: 2,
+        name: "Redención unica en toda la aplicación",
+        description:
+          "El usuario podra redimir el producto o servicio por una unica vez en toda la apliación con MotoPuntos",
+      },
+      {
+        id: 3,
+        name: "Redención unica en tu establecimiento",
+        description:
+          "Redención unica en tu establecimiento: El usuario podra redimir por una unica vez tu producto o servicio en tu establecimiento con MotoPuntos ",
+      },
+    ];
+    $scope.selectedSalesType = 1;
+
+    $scope.isSelectedSalesType = (sales) => {
+      return $scope.selectedSalesType === sales.id;
+    };
+    $scope.setSelectedSalesType = (sales) => {
+      $scope.selectedSalesType = sales.id;
+      sessionStorage.setItem("selectedSalesType", $scope.selectedSalesType);
     };
 
-    $scope.changeToggle = () => {
-      $scope.toggle = $scope.toggle;
-      if (!$scope.toggle) sessionStorage.removeItem("percent");
+    $scope.isEnabledContinue = () => {
+      return (
+        ($scope.notOnlyMotoPuntos && $scope.price && $scope.percent) ||
+        (!$scope.notOnlyMotoPuntos && $scope.price)
+      );
     };
+
+    $scope.changeToggle = (value) => {
+      $scope.notOnlyMotoPuntos = value;
+      sessionStorage.setItem("notOnlyMotoPuntos", $scope.notOnlyMotoPuntos);
+
+      if ($scope.notOnlyMotoPuntos) {
+        sessionStorage.removeItem("selectedSalesType");
+      } else {
+        $scope.setSelectedSalesType({ id: 1 });
+        sessionStorage.removeItem("percent");
+      }
+    };
+
     $scope.setPrice = (event) => {
       $scope.price = event.target.value;
       sessionStorage.setItem("price", $scope.price);
+      if (!$scope.notOnlyMotoPuntos) $scope.setSelectedSalesType({ id: 1 });
     };
     $scope.setPercent = (event) => {
       $scope.percent = event.target.value;

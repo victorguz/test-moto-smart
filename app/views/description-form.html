@@ -6,7 +6,7 @@
     <h1>Describe tu publicación</h1>
     <a
       class="btn btn-primary btn-small"
-      ng-disabled="!descriptionForm.description.length"
+      ng-disabled="!description.length"
       ng-href="#!/categories-form"
     >
       Continuar
@@ -20,7 +20,8 @@
         id="textarea1"
         class="materialize-textarea w-100"
         rows="10"
-        ng-model="descriptionForm.description"
+        ng-value="description"
+        ng-keyup="setDescription($event.target.value)"
         placeholder="Ej: Las llantas kenda son de maxima duración."
       ></textarea>
       <div
@@ -29,7 +30,7 @@
         data-success="right"
       >
         <span>Puedes incluir 2000 caracteres en el titulo</span>
-        <span>{{descriptionForm.description.length||0}}/2000</span>
+        <span>{{description.length||0}}/2000</span>
       </div>
     </div>
   </section>

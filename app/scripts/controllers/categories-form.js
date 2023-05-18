@@ -63,7 +63,8 @@ angular
       },
     ];
 
-    $scope.selectedCategories = [];
+    $scope.selectedCategories =
+      JSON.parse(sessionStorage.getItem("selectedCategories")) || [];
 
     $scope.isSelectedCategory = (category) => {
       const find = $scope.selectedCategories.find(
@@ -79,5 +80,9 @@ angular
       } else {
         $scope.selectedCategories.push(category);
       }
+      sessionStorage.setItem(
+        "selectedCategories",
+        JSON.stringify($scope.selectedCategories)
+      );
     };
   });

@@ -1,0 +1,51 @@
+<article class="form">
+  <nav class="header p-3">
+    <a
+      class="btn btn-back rounded-circle border-0"
+      ng-href="#!/uploaded-photos"
+    >
+      <img src="images/back-black.svg" alt="back" />
+    </a>
+
+    <a
+      class="btn btn-primary btn-small"
+      ng-disabled="!quantity"
+      ng-href="#!/dates-form"
+    >
+      Continuar
+    </a>
+  </nav>
+  <section class="container pb-5 d-flex flex-column align-items-center gap-3">
+    <h1 class="categories-title">
+      Asigna la cantidad de unidades o servicios
+      <br />
+      disponibles de tu publicación
+    </h1>
+    <p class="last-form-message">
+      *Una vez el numero de las cantidades llegue a cero, tu publicación pasara
+      al estado de inactivo en el la tienda de tu prefil.
+    </p>
+
+    <div class="card w-100">
+      <div class="card-body">
+        <span class="icon-info">
+          <img src="../images/Icono informacion.svg" alt="info" />
+        </span>
+        <div class="input-field">
+          <input
+            id="quantiy"
+            type="number"
+            class="validate"
+            maxlength="2"
+            min="0"
+            max="99"
+            ng-value="quantiy"
+            ng-keyup="setQuantity($event)"
+          />
+          <span class="helper-text text-end">{{getPercentLength()||0}}/2</span>
+        </div>
+        <small>*La cantidad debe ser mayor a cero</small>
+      </div>
+    </div>
+  </section>
+</article>

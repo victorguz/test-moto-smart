@@ -12,6 +12,8 @@
 .splash .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 
   height: 50px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -26,6 +28,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.splash .header h1 {
+  font-family: "Avenir";
+  font-style: normal;
+  font-weight: 850;
+  font-size: 20px;
+  line-height: 100%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.01em;
+  margin: 0;
+  color: #ffffff;
 }
 .splash .container p {
   font-family: "Avenir Book";
@@ -66,8 +80,7 @@
   gap: 10px;
 
   width: 312px;
-  height: 43px;
-
+  height: 48px;
   /* Blanco */
 
   background: #ffffff !important;
@@ -87,4 +100,52 @@
 
 .photos .header {
   box-shadow: none;
+}
+
+.splash .promos-top-text {
+  font-family: "Avenir";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 16px !important;
+  line-height: 18px;
+  /* or 112% */
+
+  text-align: center;
+
+  /* Blanco */
+
+  color: #ffffff;
+
+  text-shadow: none !important;
+}
+
+.splash .promos-top-text strong {
+  font-family: "Avenir";
+  font-style: normal;
+  font-weight: 850;
+  font-size: 16px;
+  line-height: 18px;
+  /* or 112% */
+
+  text-align: center;
+
+  /* Blanco */
+
+  color: #ffffff;
+}
+
+.splash .btn {
+  text-transform: none !important;
+}
+.splash .container .btn-outline-light {
+  background-color: transparent !important;
+  color: white !important;
+  border: 3px solid white !important;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+  box-shadow: none !important;
+}
+
+.promos-top a {
+  height: 54px !important;
 }

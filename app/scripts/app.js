@@ -47,22 +47,42 @@ angular
       .when("/upload-photos", {
         templateUrl: "views/upload-photos.html",
         controller: "UploadPhotosCtrl",
-        controllerAs: "UploadPhotosForm",
+        controllerAs: "uploadPhotosForm",
       })
       .when("/uploaded-photos", {
         templateUrl: "views/uploaded-photos.html",
         controller: "UploadedPhotosCtrl",
-        controllerAs: "UploadedPhotosForm",
+        controllerAs: "uploadedPhotosForm",
       })
       .when("/price-form", {
         templateUrl: "views/price-form.html",
         controller: "PriceFormCtrl",
-        controllerAs: "PriceForm",
+        controllerAs: "priceForm",
       })
       .when("/new-product-splash", {
         templateUrl: "views/new-product-splash.html",
         controller: "NewProductSplashCtrl",
-        controllerAs: "NewProductForm",
+        controllerAs: "newProductForm",
+      })
+      .when("/dates-form", {
+        templateUrl: "views/dates-form.html",
+        controller: "DatesFormCtrl",
+        controllerAs: "datesForm",
+      })
+      .when("/quantity-form", {
+        templateUrl: "views/quantity-form.html",
+        controller: "QuantityFormCtrl",
+        controllerAs: "quantityForm",
+      })
+      .when("/splash-promos-top", {
+        templateUrl: "views/splash-promos-top.html",
+        controller: "SplashPromosTopCtrl",
+        controllerAs: "splashPromosTopForm",
+      })
+      .when("/splash-promos-top-second", {
+        templateUrl: "views/splash-promos-top-second.html",
+        controller: "SplashPromosTopSecondCtrl",
+        controllerAs: "splashPromosTopSecondForm",
       })
       .otherwise({
         redirectTo: "/",
