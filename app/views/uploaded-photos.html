@@ -1,10 +1,14 @@
 <article class="form">
   <nav class="header p-3">
     <a class="btn btn-back rounded-circle border-0" ng-href="#!/upload-photos">
-      <img src="../images/back-black.svg" alt="back" />
+      <img src="images/back-black.svg" alt="back" />
     </a>
     <h1>Crear publicación</h1>
-    <button class="btn btn-primary btn-small" ng-click="goToLastForm()">
+    <button
+      class="btn btn-primary btn-small"
+      ng-click="goToLastForm()"
+      ng-disabled="!loadedImages.length"
+    >
       Continuar
     </button>
   </nav>
@@ -19,17 +23,17 @@
           fondo blanco puro como este 👉
         </p>
       </div>
-      <img src="../images/casco.png" alt="casco" width="67" height="67" />
+      <img src="images/casco.png" alt="casco" width="67" height="67" />
     </div>
 
     <div class="photo-slider">
       <div class="slider-content">
-        <div class="slide" ng-repeat="image in images">
+        <div class="slide" ng-repeat="image in loadedImages">
           <button class="btn btn-closer bg-white" ng-click="deleteImage(image)">
-            <img src="../images/close.svg" alt="close" />
+            <img src="images/close.svg" alt="close" />
           </button>
           <img
-            ng-src="../images/slider/{{image.name}}"
+            ng-src="{{image.base64}}"
             width="240px"
             height="240px"
             alt="slide-{{image.id}}"
@@ -39,19 +43,13 @@
     </div>
 
     <button class="btn mt-5 pt-5" ng-click="openFile('galery')">
-      <img src="../images/open-gallery.svg" alt="icono-galeria" />
+      <img src="images/open-gallery.svg" alt="icono-galeria" />
     </button>
   </section>
 </article>
 
 <article class="floating-loader">
-  <img src="../images/loading.svg" alt="loading" />
+  <img src="images/loading.svg" alt="loading" />
 </article>
 
-<input
-  type="file"
-  id="imageFile"
-  ng-attr-capture="{{capture?'environment':undefined}}"
-  accept="image/*"
-  hidden
-/>
+<input type="file" id="inputFileGallery" accept="image/*" multiple hidden />

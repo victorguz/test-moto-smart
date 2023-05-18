@@ -4,7 +4,7 @@
       class="btn btn-back rounded-circle border-0"
       ng-href="#!/uploaded-photos"
     >
-      <img src="../images/back-black.svg" alt="back" />
+      <img src="images/back-black.svg" alt="back" />
     </a>
     <h1>
       Cual es el título de tu <br />
@@ -28,14 +28,14 @@
       <button
         class="btn"
         ng-class="{'btn-primary': toggle,'btn-secondary': !toggle,}"
-        ng-click="toggle = true"
+        ng-click="changeToggle()"
       >
         Dinero + MotoPuntos
       </button>
       <button
         class="btn"
         ng-class="{'btn-primary': !toggle,'btn-secondary': toggle,}"
-        ng-click="toggle = false"
+        ng-click="changeToggle()"
       >
         Solo MotoPuntos
       </button>
@@ -44,15 +44,15 @@
       <div class="card-body">
         <div class="input-field">
           <input
-            id="first_value"
+            id="price"
             type="number"
             class="validate"
             maxlength="14"
             max="99999999999999"
             min="0"
-            ng-model="first_value"
+            ng-keyup="setPrice($event)"
           />
-          <label for="first_value">$ Ingresa el valor sin descuentos </label>
+          <label for="price">$ Ingresa el valor sin descuentos </label>
           <span class="helper-text text-end"
             >{{getFirstValueLength()||0}}/14</span
           >
@@ -92,13 +92,8 @@
           class="d-flex align-items-center gap-1 justify-content-between text-nowrap mb-3"
         >
           <p class="m-0">Precio sin descuento:</p>
-          <div
-            class="d-flex align-items-center gap-1 flex-wrap"
-            ng-if="first_value"
-          >
-            <span class="text-muted"
-              >COP: <del> {{first_value | number}} </del></span
-            >
+          <div class="d-flex align-items-center gap-1 flex-wrap" ng-if="price">
+            <span class="text-muted">COP: <del> {{price | number}} </del></span>
             <span class="text-success fw-bold">-{{percent | number}}%</span>
           </div>
         </div>
@@ -115,7 +110,7 @@
             </span>
             <span>+</span>
             <span class="text-primary">{{getPercentX100() | number}}</span>
-            <img src="../images/mp.svg" alt="mp" />
+            <img src="images/mp.svg" alt="mp" />
           </div>
         </div>
       </div>

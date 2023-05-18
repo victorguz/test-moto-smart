@@ -10,61 +10,43 @@
 angular
   .module("testMotoSmartApp")
   .controller("UploadPhotosCtrl", function ($scope) {
-    $scope.capture = "environment";
-    $scope.images = [
-      {
-        id: 1,
-        name: "1.png",
-      },
-      {
-        id: 2,
-        name: "2.png",
-      },
-      {
-        id: 3,
-        name: "3.png",
-      },
-      {
-        id: 4,
-        name: "4.png",
-      },
-      {
-        id: 5,
-        name: "5.png",
-      },
-    ];
     const uploadedPhotosRoute = "#!/uploaded-photos";
-    const afterUploadedRoute = "#!/last-form";
     const inputFileCamera = document.querySelector("#inputFileCamera");
     const inputFileGallery = document.querySelector("#inputFileGallery");
-
-    inputFileCamera.addEventListener("change", (e) => {
-      // Get a reference to the file
-      const file = e.target.files[0];
-
-      // Encode the file using the FileReader API
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        $scope.goToUploadedPhotos();
-      };
-      reader.readAsDataURL(file);
-    });
-    inputFileGallery.addEventListener("change", (e) => {
-      // Get a reference to the file
-      const file = e.target.files[0];
-
-      // Encode the file using the FileReader API
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        $scope.goToUploadedPhotos();
-      };
-      reader.readAsDataURL(file);
+    $scope.loadedImages = [];
+    $scope.openFloatingActionButton = openFloatingActionButton;
+    $scope.loadedImages = images();
+    inputFileCamera.addEventListener("change", async (e) => {
+      const files = e.target.files;
+      for (const file of files) addImage(await toBase64(file));
     });
 
-    $scope.openFloatingActionButton = () => {
+    inputFileGallery.addEventListener("change", async (e) => {
+      const files = e.target.files;
+      for (const file of files) addImage(await toBase64(file));
+    });
+
+    function images() {
+      const localImages = sessionStorage.getItem("images");
+      return localImages ? JSON.parse(localImages) : [];
+    }
+
+    function addImage(base64) {
+      $scope.loadedImages.push({ id: Date.now(), base64 });
+    }
+
+    function toBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+      });
+    }
+
+    function openFloatingActionButton() {
       const floatingActionsContainer =
         document.querySelector(".floating-actions");
-      console.log(floatingActionsContainer);
       if (
         floatingActionsContainer.classList.contains("floating-actions-open")
       ) {
@@ -72,7 +54,7 @@ angular
       } else {
         floatingActionsContainer.classList.add("floating-actions-open");
       }
-    };
+    }
 
     $scope.openFile = (item) => {
       if (item === "camera") {
@@ -80,24 +62,10 @@ angular
       } else {
         inputFileGallery.click();
       }
-      console.log($scope.capture);
     };
 
     $scope.goToUploadedPhotos = () => {
+      sessionStorage.setItem("images", JSON.stringify($scope.loadedImages));
       location.href = uploadedPhotosRoute;
-    };
-
-    $scope.goToLastForm = () => {
-      const floatingActionsContainer =
-        document.querySelector(".floating-loader");
-      floatingActionsContainer.classList.add("floating-loader-open");
-      setTimeout(() => {
-        floatingActionsContainer.classList.remove("floating-loader-open");
-        location.href = afterUploadedRoute;
-      }, 1000);
-    };
-
-    $scope.deleteImage = (image) => {
-      $scope.images = $scope.images.filter((val) => val.id !== image.id);
     };
   });

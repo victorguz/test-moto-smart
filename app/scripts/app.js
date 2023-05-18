@@ -51,13 +51,18 @@ angular
       })
       .when("/uploaded-photos", {
         templateUrl: "views/uploaded-photos.html",
-        controller: "UploadPhotosCtrl",
-        controllerAs: "UploadPhotosForm",
+        controller: "UploadedPhotosCtrl",
+        controllerAs: "UploadedPhotosForm",
       })
-      .when("/last-form", {
-        templateUrl: "views/last-form.html",
-        controller: "LastFormCtrl",
-        controllerAs: "LastForm",
+      .when("/price-form", {
+        templateUrl: "views/price-form.html",
+        controller: "PriceFormCtrl",
+        controllerAs: "PriceForm",
+      })
+      .when("/new-product-splash", {
+        templateUrl: "views/new-product-splash.html",
+        controller: "NewProductSplashCtrl",
+        controllerAs: "NewProductForm",
       })
       .otherwise({
         redirectTo: "/",
