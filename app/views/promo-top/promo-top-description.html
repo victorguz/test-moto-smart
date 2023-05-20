@@ -1,0 +1,65 @@
+<article class="form">
+  <nav class="header">
+    <a
+      class="btn btn-back rounded-circle border-0"
+      ng-href="#!/promo-top-title"
+    >
+      <img src="images/back-black.svg" alt="back" />
+    </a>
+
+    <a
+      class="btn btn-primary btn-small"
+      ng-disabled="!description.length"
+      ng-href="#!/promo-top-card-color"
+    >
+      Continuar
+    </a>
+  </nav>
+  <section
+    class="promo-top container pt-3 pb-5 d-flex flex-column align-items-center"
+  >
+    <h1 class="categories-title">Describe la Promo top</h1>
+
+    <div class="mt-4">
+      <small class="fw-light">Así se verá la tarjeta de tu promo top</small>
+      <div class="card card-body pt-2">
+        <span class="text-small">Promos top</span>
+        <div class="card-promo-top" style="{{cardColor}}">
+          <img
+            ng-src="{{image.base64}}"
+            alt="promo-top-img"
+            class="img-fluid"
+            width="50"
+            height="50"
+          />
+          <small class="small" style="{{textColor}}">
+            <span class="title mb-1">{{title || "Tu titulo"}}</span>
+            <span>
+              {{description || ("Tu descripción debe tener maximo 35" +
+              "caracteres")}}
+            </span>
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="input-field w-100 input-promo-top">
+      <textarea
+        id="textarea1"
+        class="materialize-textarea w-100"
+        rows="10"
+        ng-value="description"
+        ng-keyup="setDescription($event.target.value)"
+        placeholder="Describe la promo top"
+        maxlength="35"
+      ></textarea>
+      <div
+        class="helper-text d-flex align-items-center justify-content-between"
+        data-error="wrong"
+        data-success="right"
+      >
+        <span>Puedes incluir 35 caracteres en la descripción</span>
+        <span>{{title.length||0}}/35</span>
+      </div>
+    </div>
+  </section>
+</article>

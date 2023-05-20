@@ -29,20 +29,23 @@
     <div class="card w-100">
       <div class="card-body">
         <span class="icon-info">
-          <img src="../images/Icono informacion.svg" alt="info" />
+          <img src="../../images/Icono informacion.svg" alt="info" />
         </span>
         <div class="input-field">
           <input
-            id="quantiy"
+            id="quantity"
             type="number"
+            pattern="\d*"
             class="validate"
-            maxlength="2"
+            maxlength="4"
             min="0"
-            max="99"
-            ng-value="quantiy"
+            max="9999"
+            ng-value="quantity"
             ng-keyup="setQuantity($event)"
           />
-          <span class="helper-text text-end">{{getPercentLength()||0}}/2</span>
+          <span class="helper-text text-end"
+            >{{getPercentLength() || 0}}/4</span
+          >
         </div>
         <small>*La cantidad debe ser mayor a cero</small>
       </div>

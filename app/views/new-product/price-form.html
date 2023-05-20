@@ -42,12 +42,13 @@
     <div class="card w-100">
       <div class="card-body">
         <span class="icon-info">
-          <img src="../images/Icono informacion.svg" alt="info" />
+          <img src="../../images/Icono informacion.svg" alt="info" />
         </span>
         <div class="input-field">
           <input
             id="price"
             type="number"
+            pattern="\d*"
             class="validate"
             maxlength="14"
             max="99999999999999"
@@ -78,12 +79,13 @@
     <div class="card w-100" ng-if="notOnlyMotoPuntos">
       <div class="card-body">
         <span class="icon-info">
-          <img src="../images/Icono informacion.svg" alt="info" />
+          <img src="../../images/Icono informacion.svg" alt="info" />
         </span>
         <div class="input-field">
           <input
             id="percent"
             type="number"
+            pattern="\d*"
             class="validate"
             maxlength="2"
             min="0"
@@ -148,13 +150,13 @@
               <strong>{{sales.name}}:</strong> {{sales.description}}
             </p>
             <img
-              ng-src="../images/{{isSelectedSalesType(sales)?'radiobutton-selected':'radiobutton-not-selected'}}.svg"
+              ng-src="../../images/{{isSelectedSalesType(sales)?'radiobutton-selected':'radiobutton-not-selected'}}.svg"
               alt="radio-button"
             />
           </div>
         </div>
         <span class="icon-info">
-          <img src="../images/Icono informacion.svg" alt="info" />
+          <img src="../../images/Icono informacion.svg" alt="info" />
         </span>
       </div>
     </div>

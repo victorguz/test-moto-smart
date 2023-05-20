@@ -1,0 +1,52 @@
+<article class="form">
+  <nav class="header">
+    <a
+      class="btn btn-back rounded-circle border-0"
+      ng-href="#!/promo-top-card-color"
+    >
+      <img src="images/back-black.svg" alt="back" />
+    </a>
+
+    <button
+      class="btn btn-primary btn-small"
+      ng-disabled="!localTextColor.length"
+      ng-click="nextRoute()"
+    >
+      Continuar
+    </button>
+  </nav>
+  <section class="promo-top pt-3 pb-5 d-flex flex-column align-items-center">
+    <h1 class="categories-title">Asigna el color de fondo</h1>
+
+    <img src="../../images/select-text-color.svg" alt="select-text-color" />
+
+    <div class="mt-5">
+      <small class="fw-light">Así se verá la tarjeta de tu promo top</small>
+      <div class="card card-body pt-2">
+        <span class="text-small mb-1">Promos top</span>
+        <div class="card-promo-top" style="{{cardColor}}">
+          <img
+            ng-src="{{image.base64}}"
+            alt="promo-top-img"
+            class="img-fluid"
+            width="50"
+            height="50"
+          />
+          <small class="small" style="{{textColor}}">
+            <span class="title mb-1">{{title || "Tu titulo"}}</span>
+            <span>Tu descripción debe tener maximo 20 caracteres </span>
+          </small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="card rounded-0 w-100">
+    <div
+      class="card-body d-flex align-items-center justify-content-center gap-3"
+    >
+      <span>Selecciona el color de fondo</span>
+      <input type="color" ng-model="localTextColor;" ng-change="setColor()" />
+    </div>
+  </div>
+</article>

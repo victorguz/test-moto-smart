@@ -1,19 +1,13 @@
 <article class="form">
   <nav class="header">
-    <a
-      class="btn btn-back rounded-circle border-0"
-      ng-href="#!/new-product-splash"
-    >
+    <a class="btn btn-back rounded-circle border-0" ng-href="#!/title-form">
       <img src="images/back-black.svg" alt="back" />
     </a>
-    <h1>
-      Cual es el título de tu <br />
-      publicación
-    </h1>
+    <h1>Describe tu publicación</h1>
     <a
       class="btn btn-primary btn-small"
-      ng-disabled="!title.length"
-      ng-href="#!/description-form"
+      ng-disabled="!description.length"
+      ng-href="#!/categories-form"
     >
       Continuar
     </a>
@@ -26,17 +20,18 @@
         id="textarea1"
         class="materialize-textarea w-100"
         rows="10"
-        ng-value="title"
-        ng-keyup="setTitle($event.target.value)"
-        placeholder="Ej: Llanta kenda 90/90 R19"
+        ng-value="description"
+        ng-keyup="setDescription($event.target.value)"
+        placeholder="Ej: Las llantas kenda son de maxima duración."
+        maxlength="2000"
       ></textarea>
       <div
         class="helper-text d-flex align-items-center justify-content-between"
         data-error="wrong"
         data-success="right"
       >
-        <span>Puedes incluir 60 caracteres en el título</span>
-        <span>{{title.length||0}}/60</span>
+        <span>Puedes incluir 2000 caracteres en el titulo</span>
+        <span>{{description.length||0}}/2000</span>
       </div>
     </div>
   </section>

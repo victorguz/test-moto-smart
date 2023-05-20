@@ -1,6 +1,9 @@
 @font-face {
   font-family: "Avenir";
-  src: url("fonts/Metropolis-Regular.otf"), url("fonts/Metropolis-Black.otf");
+  src: url("fonts/Metropolis-Regular.otf"), url("fonts/Metropolis-Black.otf"),
+    url("fonts/Metropolis-Light.otf"), url("fonts/Metropolis-Bold.otf"),
+    url("fonts/Metropolis-Medium.otf"), url("fonts/Metropolis-SemiBold.otf"),
+    url("fonts/Metropolis-Thin.otf");
 }
 @font-face {
   font-family: "Avenir Book";

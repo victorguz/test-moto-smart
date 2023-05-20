@@ -6,13 +6,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: relative;
 }
 .form .container {
+  margin: 0;
+  margin-top: 50px;
   width: 100%;
   height: 100%;
   max-height: calc(100vh - 50px);
   overflow-y: auto !important;
-  margin: 0;
 }
 .form .date-form {
   overflow-y: hidden !important;
@@ -33,6 +36,8 @@
   box-shadow: none;
   border-bottom: 1px solid #00000033;
   background-color: white;
+
+  position: fixed;
 }
 .form .header .btn-back {
   background-color: transparent;
@@ -74,6 +79,7 @@
   /* Grey */
 
   color: #686e7f;
+  margin: 1rem 0;
 }
 .form .categories {
   display: grid;
@@ -153,20 +159,6 @@
 
   color: #686e7f;
 }
-.form .uploaded-photos-message p {
-  width: 236px;
-  font-style: normal;
-  font-weight: 350;
-  font-size: 14px;
-  line-height: 15px;
-  /* or 107% */
-
-  letter-spacing: 0.1px;
-
-  /* Grey */
-
-  color: #686e7f;
-}
 .form .uploaded-photos-message h1 {
   font-family: "Avenir";
   font-style: normal;
@@ -214,7 +206,8 @@
   color: #52ba52 !important;
 }
 
-small {
+small,
+.text-small {
   font-family: "Avenir";
   font-style: normal;
   font-weight: 350;
@@ -233,6 +226,11 @@ small {
   color: #686e7f;
 
   text-align: center;
+}
+.text-small {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .last-card h1 {
@@ -268,12 +266,12 @@ small {
   color: #686e7f;
 }
 
-.input-field textarea {
+.form .input-field textarea {
   transition: all ease 0.3s;
   height: 70vh;
 }
 
-.input-field textarea:focus {
+.form .input-field textarea:focus {
   height: 35vh;
 }
 
@@ -341,4 +339,53 @@ small {
   /* Grey */
 
   color: #686e7f;
+}
+
+.form .promo-top .card-body {
+  width: 200px;
+  height: 83px;
+}
+.form .promo-top .card-promo-top {
+  display: flex;
+  gap: 0rem;
+  border-radius: 5px;
+}
+.form .promo-top .card-promo-top img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px 0 0 5px;
+}
+.form .promo-top .card-promo-top .small {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.form .promo-top .card-promo-top .small span {
+  font-family: "Avenir";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 8px;
+  line-height: 12px;
+  color: currentColor;
+}
+.form .promo-top .card-promo-top .small .title {
+  font-weight: 500;
+  font-size: 10px;
+}
+
+.form .input-promo-top textarea {
+  height: 20vh;
+}
+.form .input-promo-top textarea:focus {
+  height: 10vh;
+}
+
+.form [type="color"] {
+  width: 47px;
+  height: 45px;
+  border-radius: 5px;
 }

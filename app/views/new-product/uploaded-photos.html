@@ -15,15 +15,17 @@
   <section
     class="container pt-3 pb-5 d-flex flex-column align-items-center gap-3"
   >
-    <div class="d-flex align-items-center justify-content-center">
-      <div class="uploaded-photos-message">
-        <h1 class="upload-photos-title">Importante:</h1>
+    <div class="d-flex flex-column w-100 p-3 justify-content-center">
+      <h1 class="upload-photos-title mb-1 mt-2">Importante:</h1>
+      <div
+        class="uploaded-photos-message d-flex align-items-center justify-content-between"
+      >
         <p>
           Recuerda que la primera foto de tu producto o servicio debe de ser en
           fondo blanco puro como este 👉
         </p>
+        <img src="images/casco.png" alt="casco" width="85" height="85" />
       </div>
-      <img src="images/casco.png" alt="casco" width="67" height="67" />
     </div>
 
     <div class="photo-slider">
@@ -42,8 +44,12 @@
       </div>
     </div>
 
-    <button class="btn mt-5 pt-5" ng-click="openFile('galery')">
-      <img src="images/open-gallery.svg" alt="icono-galeria" />
+    <button
+      class="btn mt-5 pt-5 d-flex flex-column align-items-center"
+      ng-click="openFile('galery')"
+    >
+      <img src="images/open-gallery.png" alt="icono-galeria" />
+      <span class="text-primary pe-3">Agregar fotos</span>
     </button>
   </section>
 </article>

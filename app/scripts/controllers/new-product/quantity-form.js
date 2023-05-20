@@ -10,7 +10,7 @@
 angular
   .module("testMotoSmartApp")
   .controller("QuantityFormCtrl", function ($scope) {
-    $scope.quantity = JSON.parse(sessionStorage.getItem("quantity")) || "";
+    $scope.quantity = sessionStorage.getItem("quantity") || "";
 
     $scope.setQuantity = (event) => {
       $scope.quantity = event.target.value;
